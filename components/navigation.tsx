@@ -17,7 +17,7 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
 } from "@/components/ui/dropdown-menu"
-import { Moon, Sun, Search, Menu, X, User, LogIn, LogOut, Settings, BookOpen, Languages, Check } from "lucide-react"
+import { Moon, Sun, Search, Menu, X, User, LogIn, LogOut, Settings, BookOpen, Languages, Check, ChevronDown } from "lucide-react"
 import { useTheme } from "next-themes"
 import { useState } from "react"
 import { useSupabaseAuth } from "@/lib/supabase-auth"
@@ -29,6 +29,13 @@ const navigation = [
   { name: "About", href: "/about" },
   { name: "FAQ", href: "/faq" },
   { name: "Contact", href: "/contact" },
+]
+
+const subjectLinks = [
+  { name: "Biology Virtual Lab", href: "/biology-virtual-lab" },
+  { name: "Chemistry Virtual Lab", href: "/chemistry-virtual-lab" },
+  { name: "Physics Virtual Lab", href: "/physics-virtual-lab" },
+  { name: "Math Virtual Lab", href: "/math-virtual-lab" },
 ]
 
 export function Navigation() {
@@ -80,6 +87,31 @@ export function Navigation() {
               {item.name}
             </Link>
           ))}
+
+          {/* Subjects Dropdown */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button
+                variant="ghost"
+                className={cn(
+                  "text-sm lg:text-base xl:text-lg font-medium py-2 px-1 touch-manipulation gap-1",
+                  subjectLinks.some((link) => pathname === link.href) ? "text-primary" : "text-muted-foreground",
+                )}
+              >
+                Subjects
+                <ChevronDown className="h-4 w-4" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="start" className="w-56">
+              {subjectLinks.map((link) => (
+                <DropdownMenuItem key={link.href} asChild>
+                  <Link href={link.href} className="cursor-pointer">
+                    {link.name}
+                  </Link>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
 
         {/* Search, Theme Toggle, User */}
