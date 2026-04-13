@@ -67,7 +67,7 @@ export default function CellSimulationPage() {
   }, [isFullscreen, toggleFullscreen])
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
+    <>
       <Navigation />
 
       <main className="flex-1 flex flex-col">
@@ -180,6 +180,6 @@ export default function CellSimulationPage() {
           </div>
         </div>
       </main>
-    </div>
+    </>
   )
 }
