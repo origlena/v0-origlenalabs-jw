@@ -1,0 +1,29 @@
+# Robots.txt for Origlena Labs - Virtual Laboratory Platform
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /auth/
+Disallow: /admin/
+
+# Sitemap location
+Sitemap: https://origlenalabs.vercel.app/sitemap.xml
+
+# Crawl-delay for considerate crawling
+Crawl-delay: 1
+
+# Allow all major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /

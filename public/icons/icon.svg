@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#32b8c6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0d9488;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#22c55e;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#a855f7;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="512" height="512" rx="96" fill="url(#grad1)"/>
+  <!-- Atom symbol -->
+  <g transform="translate(256, 256)">
+    <!-- Electron orbits -->
+    <ellipse cx="0" cy="0" rx="140" ry="50" fill="none" stroke="white" stroke-width="8" opacity="0.9" transform="rotate(-30)"/>
+    <ellipse cx="0" cy="0" rx="140" ry="50" fill="none" stroke="white" stroke-width="8" opacity="0.9" transform="rotate(30)"/>
+    <ellipse cx="0" cy="0" rx="140" ry="50" fill="none" stroke="white" stroke-width="8" opacity="0.9" transform="rotate(90)"/>
+    <!-- Nucleus -->
+    <circle cx="0" cy="0" r="35" fill="white"/>
+    <!-- Electrons -->
+    <circle cx="120" cy="-70" r="16" fill="white"/>
+    <circle cx="-120" cy="70" r="16" fill="white"/>
+    <circle cx="0" cy="140" r="16" fill="white"/>
+  </g>
+  <!-- O letter hint -->
+  <text x="256" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="url(#grad1)">O</text>
+</svg>
