@@ -10,85 +10,88 @@ interface LanguageContextType {
   t: (key: string) => string
 }
 
+// Default English translations - used as fallback for all pages
+export const DEFAULT_TRANSLATIONS = {
+  // Navigation
+  "nav.home": "Home",
+  "nav.simulations": "Simulations",
+  "nav.about": "About",
+  "nav.contact": "Contact",
+  "nav.search": "Search simulations...",
+  "nav.signIn": "Sign In",
+  "nav.profile": "Profile",
+  "nav.myLearning": "My Learning",
+  "nav.settings": "Settings",
+  "nav.logout": "Logout",
+  "nav.language": "Language",
+
+  // Hero Section
+  "hero.cbseAligned": "CBSE/NCERT Aligned",
+  "hero.classRange": "Class 6-12",
+  "hero.aiPowered": "AI-Powered Learning",
+  "hero.title1": "Learn Science Through",
+  "hero.title2": "Interactive 3D Simulations",
+  "hero.subtitle":
+    "India's first NCERT-aligned virtual laboratory platform. Master Physics, Chemistry, Biology, and Mathematics through hands-on 3D experiments designed for CBSE students.",
+  "hero.aligned": "Aligned with National Education Policy (NEP) 2020 for experiential learning",
+  "hero.startLearning": "Start Learning",
+  "hero.tryDNA": "Try DNA Lab Free",
+  "hero.developedFor": "Developed for",
+  "hero.iitKharagpur": "IIT Kharagpur Young Innovators Programme",
+
+  // Subjects
+  "subjects.title": "Choose Your Subject",
+  "subjects.subtitle":
+    "Dive into interactive simulations across four core STEM disciplines, each designed to make learning engaging and intuitive.",
+  "subjects.biology": "Biology",
+  "subjects.biology.desc": "Explore DNA structures, cell biology, and life sciences through immersive 3D models.",
+  "subjects.physics": "Physics",
+  "subjects.physics.desc": "Discover mechanics, waves, and thermodynamics with interactive experiments.",
+  "subjects.chemistry": "Chemistry",
+  "subjects.chemistry.desc": "Visualize molecules, reactions, and the periodic table in stunning detail.",
+  "subjects.mathematics": "Mathematics",
+  "subjects.mathematics.desc": "Graph functions, explore geometry, and visualize complex equations.",
+  "subjects.agriculture": "Agriculture",
+  "subjects.agriculture.desc":
+    "Learn crop farming, fertilizers, nutrients, and seasonal effects through 3D simulations.",
+  "subjects.simulations": "simulations",
+  "subjects.explore": "Explore",
+
+  // Stats
+  "stats.simulations": "3D Simulations",
+  "stats.subjects": "STEM Subjects",
+  "stats.molecules": "Molecules",
+  "stats.elements": "Elements",
+
+  // Footer
+  "footer.tagline": "Making STEM Education Interactive and Accessible",
+  "footer.description": "Developed for IIT Kharagpur Young Innovators Programme",
+  "footer.quickLinks": "Quick Links",
+  "footer.subjects": "Subjects",
+  "footer.contact": "Contact",
+  "footer.developers": "Developers",
+  "footer.rights": "All rights reserved.",
+
+  // Languages
+  "language.english": "English",
+  "language.hindi": "हिंदी (Hindi)",
+  "language.bengali": "বাংলা (Bengali)",
+
+  // Common
+  "common.loading": "Loading...",
+  "common.error": "Error",
+  "common.success": "Success",
+} as const
+
 const LanguageContext = createContext<LanguageContextType>({
   language: "en",
   setLanguage: () => {},
-  t: (key) => key,
+  t: (key) => DEFAULT_TRANSLATIONS[key as keyof typeof DEFAULT_TRANSLATIONS] || key,
 })
 
-// Translation data
+// Full translation data
 const translations: Record<Language, Record<string, string>> = {
-  en: {
-    // Navigation
-    "nav.home": "Home",
-    "nav.simulations": "Simulations",
-    "nav.about": "About",
-    "nav.contact": "Contact",
-    "nav.search": "Search simulations...",
-    "nav.signIn": "Sign In",
-    "nav.profile": "Profile",
-    "nav.myLearning": "My Learning",
-    "nav.settings": "Settings",
-    "nav.logout": "Logout",
-    "nav.language": "Language",
-
-    // Hero Section
-    "hero.cbseAligned": "CBSE/NCERT Aligned",
-    "hero.classRange": "Class 6-12",
-    "hero.aiPowered": "AI-Powered Learning",
-    "hero.title1": "Learn Science Through",
-    "hero.title2": "Interactive 3D Simulations",
-    "hero.subtitle":
-      "India's first NCERT-aligned virtual laboratory platform. Master Physics, Chemistry, Biology, and Mathematics through hands-on 3D experiments designed for CBSE students.",
-    "hero.aligned": "Aligned with National Education Policy (NEP) 2020 for experiential learning",
-    "hero.startLearning": "Start Learning",
-    "hero.tryDNA": "Try DNA Lab Free",
-    "hero.developedFor": "Developed for",
-    "hero.iitKharagpur": "IIT Kharagpur Young Innovators Programme",
-
-    // Subjects
-    "subjects.title": "Choose Your Subject",
-    "subjects.subtitle":
-      "Dive into interactive simulations across four core STEM disciplines, each designed to make learning engaging and intuitive.",
-    "subjects.biology": "Biology",
-    "subjects.biology.desc": "Explore DNA structures, cell biology, and life sciences through immersive 3D models.",
-    "subjects.physics": "Physics",
-    "subjects.physics.desc": "Discover mechanics, waves, and thermodynamics with interactive experiments.",
-    "subjects.chemistry": "Chemistry",
-    "subjects.chemistry.desc": "Visualize molecules, reactions, and the periodic table in stunning detail.",
-    "subjects.mathematics": "Mathematics",
-    "subjects.mathematics.desc": "Graph functions, explore geometry, and visualize complex equations.",
-    "subjects.agriculture": "Agriculture",
-    "subjects.agriculture.desc":
-      "Learn crop farming, fertilizers, nutrients, and seasonal effects through 3D simulations.",
-    "subjects.simulations": "simulations",
-    "subjects.explore": "Explore",
-
-    // Stats
-    "stats.simulations": "3D Simulations",
-    "stats.subjects": "STEM Subjects",
-    "stats.molecules": "Molecules",
-    "stats.elements": "Elements",
-
-    // Footer
-    "footer.tagline": "Making STEM Education Interactive and Accessible",
-    "footer.description": "Developed for IIT Kharagpur Young Innovators Programme",
-    "footer.quickLinks": "Quick Links",
-    "footer.subjects": "Subjects",
-    "footer.contact": "Contact",
-    "footer.developers": "Developers",
-    "footer.rights": "All rights reserved.",
-
-    // Languages
-    "language.english": "English",
-    "language.hindi": "हिंदी (Hindi)",
-    "language.bengali": "বাংলা (Bengali)",
-
-    // Common
-    "common.loading": "Loading...",
-    "common.error": "Error",
-    "common.success": "Success",
-  },
+  en: DEFAULT_TRANSLATIONS,
   hi: {
     // Navigation
     "nav.home": "होम",
@@ -249,9 +252,14 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     return key
   }
 
+  // During SSR (before mounted), always use English to prevent showing keys to crawlers
   if (!mounted) {
+    const ssrT = (key: string): string => {
+      const englishTranslation = translations["en"]?.[key]
+      return englishTranslation || key
+    }
     return (
-      <LanguageContext.Provider value={{ language: "en", setLanguage: () => {}, t: (key) => key }}>
+      <LanguageContext.Provider value={{ language: "en", setLanguage: () => {}, t: ssrT }}>
         {children}
       </LanguageContext.Provider>
     )
